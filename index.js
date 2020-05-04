@@ -81,8 +81,7 @@ truncateString("A-tisket a-tasket A green and yellow basket", 11);
 
 function chunkArrayInGroups(arr, size) {
   var groupedArr = [];
-  var count = (arr.length) / size;
-  console.log(count);
+  var count = Math.round(arr.length / size);
   var j = 0;
   var oldSize = size;
   for (var i = 0; i < count; i++) {
