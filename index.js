@@ -94,3 +94,42 @@ function chunkArrayInGroups(arr, size) {
 }
 
 chunkArrayInGroups([0, 1, 2, 3, 4, 5], 4);
+
+function slasher(arr, howMany) {
+  return arr.slice(howMany, arr.length);
+}
+
+slasher([1, 2, 3], 0);
+
+function mutation(arr) {
+  var word = arr[0].toUpperCase().split("");
+  var match = arr[1].toUpperCase().split("");
+  var result = 0;
+  for (var i = 0; i < match.length; i++) {
+    if (word.indexOf(match[i]) === -1)
+      result = -1;
+  }
+  if (result === -1)
+    return false;
+  return true;
+}
+
+mutation(["hello", "Hello"]);
+
+function bouncer(arr) {
+  return arr.filter(value => value);
+}
+
+bouncer([false, null, 0, NaN, undefined, "", 2, "a"]);
+//bouncer(["a", "b", "c"]);
+
+function destroyer(arr) {
+  var args = Array.prototype.slice.call(arguments);
+  var toDestroy = args.slice(1, args.length);
+
+  return arr.filter(function(number) {
+    return !toDestroy.includes(number);
+  });
+}
+
+destroyer([1, 2, 3, 1, 2, 3, 4, 5], 2, 3, 4);
