@@ -133,3 +133,17 @@ function destroyer(arr) {
 }
 
 destroyer([1, 2, 3, 1, 2, 3, 4, 5], 2, 3, 4);
+
+function getIndexToIns(arr, num) {
+  function compareNumbers(a, b) {
+    return a - b;
+  }
+  arr.sort(compareNumbers);
+  var i = 0;
+  while (arr[i] <= num) {
+    i++
+  }
+  return i;
+}
+
+getIndexToIns([20, 3, 5], 19);
