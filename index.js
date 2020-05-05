@@ -141,9 +141,35 @@ function getIndexToIns(arr, num) {
   arr.sort(compareNumbers);
   var i = 0;
   while (arr[i] <= num) {
-    i++
+    i++;
   }
   return i;
 }
 
 getIndexToIns([20, 3, 5], 19);
+
+function rot13(str) {
+  // var test = "F Z";
+  // console.log(test.charCodeAt(0), test.charCodeAt(1)); 65 - 90
+  var charCodes = [];
+  for (var i = 0; i < str.length; i++) {
+    if (str.charCodeAt(i) >= 65 && str.charCodeAt(i) <= 90) {
+      if (str.charCodeAt(i) + 13 > 90) {
+        var diff = 0;
+        diff = (str.charCodeAt(i) + 13) - 90;
+        charCodes.push(65 + diff - 1);
+      } else {
+        charCodes.push(str.charCodeAt(i) + 13);
+      }
+    } else {
+      charCodes.push(str.charCodeAt(i));
+    }
+  }
+  var decrypted = "";
+  for (var i = 0; i < charCodes.length; i++) {
+    decrypted += String.fromCharCode(parseInt(charCodes[i]));
+  }
+  return decrypted;
+}
+
+rot13("SERR PBQR PNZC");
