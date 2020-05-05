@@ -172,4 +172,23 @@ function rot13(str) {
   return decrypted;
 }
 
-rot13("SERR PBQR PNZC");
+rot13("SERR PBQR PNZC"); // GUR DHVPX OEBJA SBK WHZCF BIRE 13 YNML QBTF.
+
+function sumAll(arr) {
+  // function compareNumbers(a, b) {
+    // return a - b;
+  // }
+  // arr.sort(compareNumbers);
+  // var result = 0;
+  // for (var i = arr[0] - 1; i < arr[1]; i++)
+    // result += i + 1
+  var newArr = []; 
+  var min = Math.min(...arr), max = Math.max(...arr);
+  for (var i = min - 1; i < max; i++) {
+    newArr.push(i + 1);
+  }
+  var reducer = (sum, val) => sum + val;
+  return newArr.reduce(reducer); // result
+}
+
+sumAll([10, 5]);
